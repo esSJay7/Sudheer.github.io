@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+    
+    <!-- Your CSS -->
+    <style>
+        /* ===== Core Styles ===== */
+        /* ...paste all CSS above here... */
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -10,97 +20,115 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --dark: #0A0A0A;
-            --neon: #00FFE0;
-            --text: #E5E5E5;
-        }
+      <style>
+    /* ===== Core Styles ===== */
+    :root { 
+        --dark: #0A0A0A;       /* Background color */
+        --neon: #00FFE0;       /* Accent color (teal) */
+        --text: #E5E5E5;       /* Text color */
+    }
 
-        /* Enhanced Hero Section */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(45deg, #0A0A0A 0%, #001514 50%, #0A0A0A 100%);
-            position: relative;
-            overflow: hidden;
-        }
+    body {
+        font-family: 'Inter', sans-serif;
+        background: var(--dark);
+        color: var(--text);
+        overflow-x: hidden;
+    }
 
-        #hero h1 {
-            font-size: 4rem;
-            text-shadow: 0 0 30px var(--neon);
-            transform: translateY(50px);
-            opacity: 0;
-        }
+    /* ===== Hero Section ===== */
+    #hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(45deg, #0A0A0A 0%, #001514 50%, #0A0A0A 100%);
+        position: relative;
+        overflow: hidden;
+    }
 
-        /* Modern Film Section */
-        #film {
-            padding: 120px 0;
-            background: #0F0F0F;
-            position: relative;
-        }
+    #hero h1 {
+        font-size: 4rem;
+        text-shadow: 0 0 30px var(--neon);
+    }
 
-        .video-container {
-            border: 2px solid var(--neon);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    /* ===== Film Section ===== */
+    #film .video-container {
+        border: 2px solid var(--neon);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-        .video-container:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 40px rgba(0,255,224,0.2);
-        }
+    #film .video-container:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 40px rgba(0,255,224,0.2);
+    }
 
-        /* Dynamic Music Section */
-        #music .col-md-6 {
-            opacity: 0;
-            transform: translateY(50px);
-        }
+    /* ===== Music Videos ===== */
+    #music .col-md-6 {
+        opacity: 0; /* GSAP will animate this */
+    }
 
-        /* Neon Button Enhancements */
-        .btn-neon {
-            background: var(--neon);
-            color: var(--dark);
-            padding: 15px 40px;
-            border-radius: 8px;
-            font-weight: 700;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
+    /* ===== Neon Button ===== */
+    .btn-neon {
+        background: var(--neon);
+        color: var(--dark);
+        padding: 15px 40px;
+        border-radius: 8px;
+        font-weight: 700;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+    }
 
-        .btn-neon:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s;
-        }
+    .btn-neon:hover {
+        transform: scale(1.05);
+    }
 
-        .btn-neon:hover:before {
-            animation: neonFlow 1.5s infinite;
-        }
+    /* ===== Scroll Animations ===== */
+    [data-aos="custom-fade"] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s;
+    }
 
-        @keyframes neonFlow {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
+    [data-aos="custom-fade"].aos-animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-        /* Advanced Animations */
-        [data-aos="custom-fade"] {
-            opacity: 0;
-            transition-property: opacity, transform;
-        }
+    /* ===== Custom Scrollbar ===== */
+    ::-webkit-scrollbar {
+        width: 8px;
+        background: var(--dark);
+    }
 
-        [data-aos="custom-fade"].aos-animate {
-            opacity: 1;
-        }
-    </style>
+    ::-webkit-scrollbar-thumb {
+        background: var(--neon);
+        border-radius: 4px;
+    }
+            /* ===== Hover Effects ===== */
+    .hvr-float {
+        display: inline-block;
+        vertical-align: middle;
+        transform: perspective(1px) translateZ(0);
+        transition-duration: 0.3s;
+    }
+
+    .hvr-float:hover {
+        transform: translateY(-5px);
+    }
+
+    /* ===== Input Fields ===== */
+    .form-control {
+        background: rgba(255,255,255,0.1) !important;
+        border: 1px solid var(--neon) !important;
+        color: var(--text) !important;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 15px var(--neon) !important;
+    }
+</style>
 </head>
 <body>
     <!-- Enhanced Hero Section -->
