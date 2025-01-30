@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esjay Studios | Video Production</title>
     
-    <!-- ADD YOUR LOGO FILE HERE (replace logo.png) -->
-    <link rel="icon" type="image/png" href="logo.png">
+    <!-- Required Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Required CSS -->
+    <!-- Custom CSS -->
     <style>
-        /* ===== COLOR SCHEME ===== */
         :root {
             --primary-red: #E63946;    /* Vibrant red */
             --dark-bg: #1D3557;        /* Navy blue */
@@ -19,12 +21,12 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background: var(--light-bg);
+            color: var(--dark-bg);
         }
 
-        /* ===== HEADER WITH LOGO ===== */
+        /* ===== HEADER ===== */
         .header {
             background: var(--dark-bg);
             padding: 1rem 0;
@@ -39,95 +41,129 @@
             margin-left: 2rem;
         }
 
+        .nav-link {
+            color: white !important;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-red) !important;
+        }
+
         /* ===== HERO SECTION ===== */
         .hero {
             background: linear-gradient(rgba(29,53,87,0.9), rgba(29,53,87,0.9)),
-                        url('hero-bg.jpg') center/cover;
-            height: 70vh;
+                        url('assets/hero-bg.jpg') center/cover;
+            height: 100vh;
             display: flex;
             align-items: center;
             color: white;
             margin-top: 70px;
         }
 
-        /* ===== CONTENT SECTIONS ===== */
-        .section-red {
-            background: var(--primary-red);
-            color: white;
-            padding: 4rem 2rem;
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
         }
 
-        .card {
+        /* ===== PROJECT CARDS ===== */
+        .project-card {
             border: none;
-            border-radius: 10px;
-            transition: transform 0.3s;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .card:hover {
+        .project-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* ===== PIXIS-STYLE BUTTONS ===== */
+        /* ===== ANIMATIONS ===== */
+        [data-aos] {
+            transition: all 0.8s !important;
+        }
+
+        /* ===== BUTTONS ===== */
         .btn-custom {
             background: var(--primary-red);
             color: white;
             padding: 12px 30px;
             border-radius: 25px;
             font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-custom:hover {
+            background: var(--dark-bg);
+            color: white;
         }
     </style>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- ===== HEADER/NAV ===== -->
+    <!-- ===== HEADER ===== -->
     <header class="header">
-        <!-- REPLACE logo.png WITH YOUR ACTUAL LOGO FILE -->
-        <img src="logo.png" alt="Esjay Studios Logo" class="logo">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/logo.png" alt="Esjay Studios" class="logo">
+                </a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- ===== HERO SECTION ===== -->
     <section class="hero">
         <div class="container text-center">
-            <h1 class="display-4 mb-4">Transformative Video Production</h1>
-            <p class="lead mb-4">AI-enhanced storytelling for modern brands</p>
-            <a href="#contact" class="btn btn-custom">Start Your Project</a>
+            <h1 data-aos="fade-up">Crafting Stories Through Motion</h1>
+            <p class="lead mt-3" data-aos="fade-up" data-aos-delay="200">
+                Professional video production powered by AI
+            </p>
+            <a href="#work" class="btn btn-custom mt-4" data-aos="fade-up" data-aos-delay="400">
+                View Our Work
+            </a>
         </div>
     </section>
 
     <!-- ===== FEATURED WORK ===== -->
-    <section class="py-5">
+    <section id="work" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Featured Projects</h2>
+            <h2 class="text-center mb-5" data-aos="fade-down">Featured Projects</h2>
             <div class="row g-4">
-                <!-- Video Project 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
+                <!-- Corporate Video -->
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in">
+                    <div class="project-card">
                         <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/tZ2Jobm4wq4" allowfullscreen></iframe>
                         </div>
-                        <div class="card-body">
-                            <h5>Corporate Explainer Video</h5>
-                            <p>Client: Tech Startup Inc.</p>
+                        <div class="p-3">
+                            <h5>Prodapt Solutions</h5>
+                            <p>AI Analytics Explainer</p>
                         </div>
                     </div>
                 </div>
-                <!-- Add more video projects -->
+                <!-- Add more projects -->
             </div>
         </div>
     </section>
 
     <!-- ===== SERVICES ===== -->
-    <section class="section-red">
+    <section id="services" class="py-5 bg-dark text-white">
         <div class="container">
-            <h2 class="text-center mb-5">Our Services</h2>
+            <h2 class="text-center mb-5" data-aos="fade-down">Our Services</h2>
             <div class="row g-4">
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center" data-aos="fade-up">
                     <h4>Video Production</h4>
                     <p>End-to-end video creation</p>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
                     <h4>Motion Graphics</h4>
                     <p>Dynamic animations & titles</p>
                 </div>
@@ -136,37 +172,43 @@
         </div>
     </section>
 
-    <!-- ===== BLOG/CASE STUDIES ===== -->
-    <section class="py-5 bg-light">
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Latest Insights</h2>
-            <div class="row g-4">
-                <!-- Blog Post 1 -->
+            <h2 class="text-center mb-5" data-aos="fade-down">Get in Touch</h2>
+            <form class="row g-4" data-aos="fade-up">
                 <div class="col-md-6">
-                    <div class="card h-100">
-                        <img src="blog1.jpg" class="card-img-top" alt="AI in Video Editing">
-                        <div class="card-body">
-                            <h5>AI in Modern Video Production</h5>
-                            <p>How we're revolutionizing workflows</p>
-                            <a href="#" class="btn btn-custom">Read More</a>
-                        </div>
-                    </div>
+                    <input type="text" class="form-control" placeholder="Your Name" required>
                 </div>
-                <!-- Add more blog posts -->
-            </div>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="col-12">
+                    <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-custom">Send Message</button>
+                </div>
+            </form>
         </div>
     </section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="bg-dark text-white py-4">
         <div class="container text-center">
-            <p>Connect with us:</p>
-            <!-- Add social media links -->
             <p>© 2024 Esjay Studios. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    </script>
 </body>
 </html>
